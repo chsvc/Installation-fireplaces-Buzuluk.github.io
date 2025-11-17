@@ -1,0 +1,515 @@
+:root {
+    --primary: #E34A27;
+    --primary-dark: #B2381C;
+    --secondary: #F7B733;
+    --light: #FFF8F0;
+    --dark: #2D2D2A;
+    --gray: #E8E8E8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+}
+
+header {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/camin.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(227, 74, 39, 0.3);
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(227, 74, 39, 0.4);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.services .container,
+.reviews .container {
+    overflow: visible; /* Позволяет кнопкам карусели выходить за границы */
+}
+
+section.services {
+    overflow: visible; /* Для карусели */
+    background-color: white; /* Светлый фон */
+}
+
+section.reviews {
+    overflow: visible; /* Для карусели */
+    background-color: var(--light); /* Слегка затемнённый фон */
+}
+
+section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    color: var(--primary-dark);
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--secondary);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+section.about{
+    background-color: var(--light); /* Белый фон для контраста */
+}
+
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.vacuum-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.about-content p,
+.vacuum-content p {
+    margin-bottom: 1.5rem;
+}
+
+.about-content h3,
+.vacuum-content h3 {
+    color: var(--primary-dark);
+    margin: 1.5rem 0 1rem;
+    font-size: 1.6rem;
+}
+
+.about-content ul,
+.vacuum-content ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.about-content ul li,
+.vacuum-content ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.about-content ul li:before,
+.vacuum-content ul li:before {
+    content: '✔';
+    color: var(--secondary);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.about-content .btn,
+.vacuum-content .btn {
+    display: block;
+    margin: 2rem auto 0;
+    text-align: center;
+}
+
+
+section.vacuum-cleaning {
+    background-color: white; /* Белый фон */
+}
+
+.carousel {
+    position: relative;
+    overflow: visible; /* Кнопки карусели не обрезаются */
+}
+
+.services-grid
+{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    padding-left: calc((100% - 33.33% + 2rem) / 2); /* Центрирование на десктопе */
+}
+
+
+.reviews-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 2rem;
+    padding-bottom: 1rem;
+/*    padding-left: calc((100% - 33.33% + 2rem) / 2); /* Центрирование на десктопе */*/
+}
+
+.services-grid::-webkit-scrollbar,
+.reviews-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.service-card
+{
+    background: var(--light);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    flex: 0 0 calc(33.33% - 1.33rem); /* 3 карточки с учетом gap */
+    scroll-snap-align: start;
+}
+
+.review-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    flex: 0 0 calc(33.33% - 1.33rem); /* 3 карточки с учетом gap */
+    scroll-snap-align: start;
+}
+
+.service-card:hover,
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.service-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.service-content {
+    padding: 1.5rem;
+}
+
+.service-title {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.review-card {
+    padding: 1.5rem;
+    flex: 0 0 calc(33.33% - 1.33rem); /* 3 карточки на десктопе */
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Отступ от текста отзыва */
+}
+
+
+.review-text {
+    font-size: 1rem;
+    line-height: 1.6;
+/*    margin-bottom: 1.5rem;*/
+    color: var(--dark);
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    object-fit: cover;
+
+}
+
+.author-info h4 {
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.2rem;
+
+}
+
+.author-info p {
+    font-size: 0.9rem;
+    color: var(--dark);
+    opacity: 0.8;
+}
+
+.rating {
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1.2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-btn:hover:not(:disabled) {
+    background-color: var(--primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn:active:not(:disabled) {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-btn.prev {
+    left: -40px;
+}
+
+.carousel-btn.next {
+    right: -40px;
+}
+
+.carousel-btn:disabled {
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: not-allowed;
+    transform: translateY(-50%);
+}
+
+.advantages{
+    background-color: var(--light); /* Белый фон */
+}
+
+.advantages-list
+{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.advantage-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+}
+
+.advantage-icon {
+    font-size: 1.8rem;
+    color: var(--secondary);
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.advantage-text h3 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.contact {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    text-align: center;
+}
+
+.contact .section-title {
+    color: white;
+}
+
+.contact .section-title:after {
+    background: var(--secondary);
+}
+
+.contact-info {
+    font-size: 1.6rem;
+    margin: 2rem 0;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.contact-info a:hover {
+    color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+footer {
+    background-color: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+footer p:nth-child(2) {
+    margin-top: 0.5rem; /* Было 1rem */
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+    
+    .services-grid,
+    .reviews-carousel {
+        padding-left: calc((100% - 50% + 1rem) / 2); /* Центрирование для 2 карточек */
+    }
+    
+    .service-card,
+    .review-card {
+        flex: 0 0 calc(50% - 1rem); /* 2 карточки */
+        scroll-snap-align: center;
+    }
+    
+    .carousel-btn {
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+    
+    .carousel-btn.prev {
+        left: -30px;
+    }
+    
+    .carousel-btn.next {
+        right: -30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    section {
+        padding: 2rem 0;
+    }
+    
+    .about-content,
+    .vacuum-content {
+        padding: 1.5rem;
+    }
+    
+    .about-content h3,
+    .vacuum-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .services-grid,
+    .reviews-carousel {
+        padding-left: calc((100% - 100% + 1.2rem) / 2); /* Центрирование для 1 карточки */
+    }
+    
+    .service-card,
+    .review-card {
+        flex: 0 0 calc(100% - 1rem); /* 1 карточка */
+        scroll-snap-align: center;
+    }
+    
+    .carousel-btn {
+        padding: 0.8rem;
+        font-size: 1.2rem;
+    }
+    
+    .carousel-btn.prev {
+        left: -20px;
+    }
+    
+    .carousel-btn.next {
+        right: -20px;
+    }
+}
